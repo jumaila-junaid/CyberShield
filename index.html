@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>CyberShield | Cybersecurity Awareness</title>
+  <meta name="description"
+    content="CyberShield is a practical, beginner-friendly cybersecurity awareness platform helping internet users recognize phishing, evaluate password security, test safety knowledge, and report online incidents.">
+  <meta name="keywords"
+    content="cybersecurity, awareness, phishing, password security, Sri Lanka CERT, online scams, cyber safety quiz">
+  <meta name="author" content="Jumaila Junaid">
+
+  <!-- Valid inline SVG Favicon: CyberShield Cyan/Blue Shield Icon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232F80FF'/%3E%3Cstop offset='100%25' stop-color='%2300D4FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230A1128'/%3E%3Cpath d='M32 12 L48 18 V32 C48 42.5 41.2 50.8 32 54 C22.8 50.8 16 42.5 16 32 V18 Z' fill='none' stroke='url(%23g)' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M32 23 L40 27 V33 C40 38.5 36.5 43 32 45 C27.5 43 24 38.5 24 33 V27 Z' fill='url(%23g)' opacity='0.35'/%3E%3Cpolyline points='27,33 30,36 37,29' fill='none' stroke='%2300D4FF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Poppins (Headings & Body) and JetBrains Mono (Terminal & Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 CSS via CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons via CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body tabindex="0">
+
+  <!-- Noscript Warning Notice for JavaScript-disabled environments -->
+  <noscript>
+    <div class="alert alert-warning text-center m-0 rounded-0 border-0" role="alert">
+      <strong><i class="bi bi-exclamation-triangle-fill"></i> JavaScript Required:</strong> CyberShield requires
+      JavaScript to be enabled in your browser for interactive features including threat card expansion, the local
+      password strength evaluator, the phishing simulator, and the cyber safety quiz.
+    </div>
+  </noscript>
+
+  <!-- ==========================================================================
+       Navigation Bar (Natural Flow)
+       ========================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom" id="mainNavbar" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+        <i class="bi bi-shield-lock-fill text-cyan" aria-hidden="true"></i>
+        <span>Cyber<span class="text-primary-blue">Shield</span></span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#threats">Threats</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tips">Safety Tips</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tools">Tools</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#quiz">Quiz</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#help">Report & Help</a>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <a class="btn btn-outline-cyan btn-sm" href="#help">
+              <i class="bi bi-telephone-outbound" aria-hidden="true"></i> Get Help
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       Hero Section (#home)
+       ========================================================================== -->
+  <header class="hero-section" id="home">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Hero Text & CTA -->
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="hero-pill">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span>Empowering Digital Safety in Sri Lanka</span>
+          </div>
+          <h1 class="hero-headline">Stay Safe in a Connected World.</h1>
+          <p class="hero-lead">
+            Every day, thousands of internet users encounter deceptive SMS delivery alerts, WhatsApp investment traps,
+            and stolen credentials. CyberShield delivers essential cyber awareness, interactive tools, and direct access
+            to trusted incident reporting resources.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#tips" class="btn btn-primary-custom">
+              <i class="bi bi-shield-check" aria-hidden="true"></i> Explore Safety Tips
+            </a>
+            <a href="#quiz" class="btn btn-outline-cyan">
+              <i class="bi bi-patch-question" aria-hidden="true"></i> Test Your Knowledge
+            </a>
+          </div>
+
+          <!-- Content Counts strictly derived from actual website content -->
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <span class="metric-number">6</span>
+              <span class="metric-label">Threat Guides</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number">12</span>
+              <span class="metric-label">Practical Tips</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number">2</span>
+              <span class="metric-label">Live Tools</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number">10</span>
+              <span class="metric-label">Quiz Scenarios</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal Style Threat Intelligence Panel -->
+        <div class="col-lg-6">
+          <div class="terminal-panel" role="region" aria-label="CyberShield Security Terminal">
+            <div class="terminal-header">
+              <div class="terminal-dots" aria-hidden="true">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+              </div>
+              <div class="terminal-title">cybershield-intel-terminal</div>
+              <div class="terminal-badge">LIVE MONITOR</div>
+            </div>
+            <div class="terminal-body font-mono">
+              <div class="terminal-line">
+                <span class="terminal-prompt">analyst@cybershield:~$</span> check-active-threats --region=LK
+              </div>
+              <div class="terminal-line terminal-system-text">
+                [SYSTEM] Scanning recurring threat vectors: Fake postal SMS, WhatsApp task scams, OTP disclosure...
+              </div>
+              <div class="terminal-line terminal-system-text text-cyan">
+                [ADVISORY] Automated awareness feed synchronized.
+              </div>
+              <div class="terminal-typing-box">
+                <span class="terminal-prompt">&gt;</span> <span id="terminalTypingText" class="text-white"></span><span
+                  class="terminal-cursor" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Cyber Threats Section (#threats)
+       ========================================================================== -->
+  <section class="section-padding" id="threats">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge"><i class="bi bi-shield-exclamation" aria-hidden="true"></i> Threat Landscape</span>
+        <h2 class="section-title">Common Cyber Threats</h2>
+        <p class="section-subtitle">
+          Attackers exploit human trust, urgency, and software weaknesses. Learn how each threat operates, recognize the
+          red flags, and understand realistic scenarios.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Threat 1: Phishing -->
+        <div class="col-md-6 col-lg-4">
+          <div class="threat-card">
+            <div class="threat-icon-wrapper" aria-hidden="true">
+              <i class="bi bi-envelope-exclamation-fill"></i>
+            </div>
+            <h3 class="threat-title">1. Phishing</h3>
+            <p class="threat-intro">
+              Deceptive emails, SMS (smishing), or direct messages disguised as legitimate institutions designed to
+              trick you into revealing passwords, credit card info, or OTPs.
+            </p>
+            <button class="threat-expand-btn" type="button" aria-expanded="false" aria-controls="threat-details-1"
+              id="threat-btn-1">
+              <span>View Threat Details</span>
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="threat-details-area" id="threat-details-1" role="region" aria-labelledby="threat-btn-1">
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-info-circle text-primary-blue"></i> What it is</div>
+                <p class="detail-text">
+                  Cybercriminals impersonate well-known companies, postal services, or banks to steal your confidential
+                  information or login credentials.
+                </p>
+              </div>
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-exclamation-triangle text-danger"></i> Warning Signs</div>
+                <p class="detail-text">
+                  Urgent threats ("Account suspended in 24 hours"), generic greetings ("Dear Customer"), mismatched
+                  URLs, and spelling errors in the sender address.
+                </p>
+              </div>
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-shield-check text-success"></i> How to Protect Yourself</div>
+                <p class="detail-text">
+                  Never click links in unsolicited messages. Inspect the sender domain carefully and verify notices
+                  directly via official apps or verified phone numbers.
+                </p>
+              </div>
+              <!-- Sri Lankan Scenario -->
+              <div class="sl-scenario-box">
+                <div class="sl-scenario-title"><i class="bi bi-geo-alt-fill"></i> Realistic Scenario: Sri Lanka</div>
+                <p class="sl-scenario-desc">
+                  Receiving an SMS purporting to be from a postal or courier service claiming an international parcel is
+                  held due to an incomplete address. Clicking the link opens a lookalike portal asking for a Rs. 350
+                  customs fee, prompting for credit card details and an SMS OTP.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Threat 2: Malware -->
+        <div class="col-md-6 col-lg-4">
+          <div class="threat-card">
+            <div class="threat-icon-wrapper" aria-hidden="true">
+              <i class="bi bi-bug-fill"></i>
+            </div>
+            <h3 class="threat-title">2. Malware</h3>
+            <p class="threat-intro">
+              Malicious software—including spyware, trojans, keyloggers, and viruses—engineered to infiltrate your
+              device, harvest keystrokes, and extract private data silently.
+            </p>
+            <button class="threat-expand-btn" type="button" aria-expanded="false" aria-controls="threat-details-2"
+              id="threat-btn-2">
+              <span>View Threat Details</span>
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="threat-details-area" id="threat-details-2" role="region" aria-labelledby="threat-btn-2">
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-info-circle text-primary-blue"></i> What it is</div>
+                <p class="detail-text">
+                  Hostile software designed to gain unauthorized access to a computer or mobile phone, often disguised
+                  as legitimate programs or pirated utilities.
+                </p>
+              </div>
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-exclamation-triangle text-danger"></i> Warning Signs</div>
+                <p class="detail-text">
+                  Unexpected battery drain, unexplained mobile data spikes, persistent pop-up advertisements, slow
+                  performance, or unknown apps appearing on your home screen.
+                </p>
+              </div>
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-shield-check text-success"></i> How to Protect Yourself</div>
+                <p class="detail-text">
+                  Install software only from official app stores (Google Play, Apple App Store). Keep operating systems
+                  updated, and never download cracked tools or third-party APKs.
+                </p>
+              </div>
+              <!-- Sri Lankan Scenario -->
+              <div class="sl-scenario-box">
+                <div class="sl-scenario-title"><i class="bi bi-geo-alt-fill"></i> Realistic Scenario: Sri Lanka</div>
+                <p class="sl-scenario-desc">
+                  Downloading "Modded WhatsApp APKs" or cracked exam software shared via Telegram channels. These
+                  modified packages secretly bundle spyware that monitors SMS verification codes and extracts stored
+                  photo galleries.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Threat 3: Online Scams -->
+        <div class="col-md-6 col-lg-4">
+          <div class="threat-card">
+            <div class="threat-icon-wrapper" aria-hidden="true">
+              <i class="bi bi-shield-slash-fill"></i>
+            </div>
+            <h3 class="threat-title">3. Online Scams</h3>
+            <p class="threat-intro">
+              Deceptive schemes exploiting financial hardship, curiosity, or greed—including fake work-from-home tasks,
+              lottery prizes, and bogus investment schemes.
+            </p>
+            <button class="threat-expand-btn" type="button" aria-expanded="false" aria-controls="threat-details-3"
+              id="threat-btn-3">
+              <span>View Threat Details</span>
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="threat-details-area" id="threat-details-3" role="region" aria-labelledby="threat-btn-3">
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-info-circle text-primary-blue"></i> What it is</div>
+                <p class="detail-text">
+                  Fraudulent schemes orchestrated to trick victims into sending money under the guise of guaranteed
+                  investment profits, part-time jobs, or lottery winnings.
+                </p>
+              </div>
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-exclamation-triangle text-danger"></i> Warning Signs</div>
+                <p class="detail-text">
+                  Promises of abnormally high daily earnings with zero effort, demands for upfront deposits or recharge
+                  fees to unlock payments, and pressure to act immediately.
+                </p>
+              </div>
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-shield-check text-success"></i> How to Protect Yourself</div>
+                <p class="detail-text">
+                  Remember: legitimate employers never ask job seekers to deposit money. Verify corporate entities
+                  independently and never transfer funds to personal bank accounts.
+                </p>
+              </div>
+              <!-- Sri Lankan Scenario -->
+              <div class="sl-scenario-box">
+                <div class="sl-scenario-title"><i class="bi bi-geo-alt-fill"></i> Realistic Scenario: Sri Lanka</div>
+                <p class="sl-scenario-desc">
+                  Receiving an unprompted WhatsApp or Telegram message offering Rs. 5,000–12,000 daily for liking
+                  YouTube videos or reviewing Google maps locations. Once you complete trial tasks, scammers demand an
+                  upfront deposit to withdraw your supposed earnings.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Threat 4: Social Engineering -->
+        <div class="col-md-6 col-lg-4">
+          <div class="threat-card">
+            <div class="threat-icon-wrapper" aria-hidden="true">
+              <i class="bi bi-person-fill-exclamation"></i>
+            </div>
+            <h3 class="threat-title">4. Social Engineering</h3>
+            <p class="threat-intro">
+              Psychological manipulation that exploits human emotion, fear, or authority to convince victims to
+              willingly bypass security protocols and surrender sensitive codes.
+            </p>
+            <button class="threat-expand-btn" type="button" aria-expanded="false" aria-controls="threat-details-4"
+              id="threat-btn-4">
+              <span>View Threat Details</span>
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="threat-details-area" id="threat-details-4" role="region" aria-labelledby="threat-btn-4">
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-info-circle text-primary-blue"></i> What it is</div>
+                <p class="detail-text">
+                  Attacking the human element rather than hardware, using pretexting, impersonation, or manufactured
+                  crisis scenarios to manipulate targets.
+                </p>
+              </div>
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-exclamation-triangle text-danger"></i> Warning Signs</div>
+                <p class="detail-text">
+                  Callers insisting on secrecy, fabricating urgent emergencies regarding family or bank accounts, and
+                  demanding immediate disclosure of verification numbers.
+                </p>
+              </div>
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-shield-check text-success"></i> How to Protect Yourself</div>
+                <p class="detail-text">
+                  Always pause and independently verify. Hang up and contact your bank or family member directly using a
+                  trusted, saved telephone number.
+                </p>
+              </div>
+              <!-- Sri Lankan Scenario -->
+              <div class="sl-scenario-box">
+                <div class="sl-scenario-title"><i class="bi bi-geo-alt-fill"></i> Realistic Scenario: Sri Lanka</div>
+                <p class="sl-scenario-desc">
+                  A fraudster calls pretending to be a bank security officer or telecom executive claiming an
+                  unauthorized fund transfer is occurring. They ask you to read out the 6-digit SMS OTP you just
+                  received to "cancel" the transaction, while in reality using it to empty your account.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Threat 5: Ransomware -->
+        <div class="col-md-6 col-lg-4">
+          <div class="threat-card">
+            <div class="threat-icon-wrapper" aria-hidden="true">
+              <i class="bi bi-lock-fill"></i>
+            </div>
+            <h3 class="threat-title">5. Ransomware</h3>
+            <p class="threat-intro">
+              Malicious extortion software that scrambles and encrypts your valuable documents, databases, and photos,
+              demanding cryptocurrency payments for the decryption key.
+            </p>
+            <button class="threat-expand-btn" type="button" aria-expanded="false" aria-controls="threat-details-5"
+              id="threat-btn-5">
+              <span>View Threat Details</span>
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="threat-details-area" id="threat-details-5" role="region" aria-labelledby="threat-btn-5">
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-info-circle text-primary-blue"></i> What it is</div>
+                <p class="detail-text">
+                  A high-impact malware strain that locks files using strong mathematical encryption, rendering critical
+                  organizational or personal data inaccessible.
+                </p>
+              </div>
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-exclamation-triangle text-danger"></i> Warning Signs</div>
+                <p class="detail-text">
+                  Files suddenly failing to open with altered extensions (e.g., .locked, .crypto), desktop wallpapers
+                  replaced with ransom instructions, and high disk usage.
+                </p>
+              </div>
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-shield-check text-success"></i> How to Protect Yourself</div>
+                <p class="detail-text">
+                  Maintain the 3-2-1 backup strategy (three copies, two different media types, one offline). Keep
+                  software patched and disable Microsoft Office document macros.
+                </p>
+              </div>
+              <!-- Sri Lankan Scenario -->
+              <div class="sl-scenario-box">
+                <div class="sl-scenario-title"><i class="bi bi-geo-alt-fill"></i> Realistic Scenario: Sri Lanka</div>
+                <p class="sl-scenario-desc">
+                  An accounting clerk at a local enterprise opens an email attachment named
+                  "Overdue_Invoice_September.zip" containing a disguised executable. Within minutes, all shared company
+                  spreadsheets and accounting databases on the local network become encrypted.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Threat 6: Public Wi-Fi Risks -->
+        <div class="col-md-6 col-lg-4">
+          <div class="threat-card">
+            <div class="threat-icon-wrapper" aria-hidden="true">
+              <i class="bi bi-wifi-off"></i>
+            </div>
+            <h3 class="threat-title">6. Public Wi-Fi Risks</h3>
+            <p class="threat-intro">
+              Unencrypted or rogue wireless networks in coffee shops, airports, and hotels that expose your browsing
+              traffic to packet sniffing and man-in-the-middle interception.
+            </p>
+            <button class="threat-expand-btn" type="button" aria-expanded="false" aria-controls="threat-details-6"
+              id="threat-btn-6">
+              <span>View Threat Details</span>
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="threat-details-area" id="threat-details-6" role="region" aria-labelledby="threat-btn-6">
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-info-circle text-primary-blue"></i> What it is</div>
+                <p class="detail-text">
+                  Open wireless connections that lack encryption, allowing nearby cyber attackers on the same network to
+                  intercept unencrypted traffic or deploy evil-twin hotspots.
+                </p>
+              </div>
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-exclamation-triangle text-danger"></i> Warning Signs</div>
+                <p class="detail-text">
+                  Wi-Fi hotspots requiring no password, duplicate network names (e.g., "Cafe_Free_WiFi" vs
+                  "Cafe_Guest"), or browser warnings regarding invalid SSL certificates.
+                </p>
+              </div>
+              <div class="detail-block">
+                <div class="detail-label"><i class="bi bi-shield-check text-success"></i> How to Protect Yourself</div>
+                <p class="detail-text">
+                  Avoid logging into bank accounts or sensitive services over public Wi-Fi. Use personal mobile hotspot
+                  data or connect through a reputable Virtual Private Network (VPN).
+                </p>
+              </div>
+              <!-- Sri Lankan Scenario -->
+              <div class="sl-scenario-box">
+                <div class="sl-scenario-title"><i class="bi bi-geo-alt-fill"></i> Realistic Scenario: Sri Lanka</div>
+                <p class="sl-scenario-desc">
+                  Connecting to an unsecured hotspot named "Station_Free_WiFi" while waiting for an intercity train. A
+                  malicious actor on the network operates a rogue DNS server that redirects login requests to
+                  counterfeit banking pages.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Safety Tips Section (#tips)
+       12 Distinct Cards categorized into Passwords, Accounts, Browsing, Privacy
+       ========================================================================== -->
+  <section class="section-padding bg-light-custom" id="tips">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge"><i class="bi bi-lightbulb-fill" aria-hidden="true"></i> Actionable Defenses</span>
+        <h2 class="section-title">Practical Cyber Safety Tips</h2>
+        <p class="section-subtitle">
+          Explore everyday digital hygiene practices tailored for Sri Lankan students, remote workers, and families.
+          Filter by topic to find specific guidelines.
+        </p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-button-group" role="group" aria-label="Filter safety tips by category">
+        <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All Tips (12)</button>
+        <button class="filter-btn" type="button" data-filter="passwords" aria-pressed="false">Passwords (3)</button>
+        <button class="filter-btn" type="button" data-filter="accounts" aria-pressed="false">Accounts (3)</button>
+        <button class="filter-btn" type="button" data-filter="browsing" aria-pressed="false">Browsing (3)</button>
+        <button class="filter-btn" type="button" data-filter="privacy" aria-pressed="false">Privacy (3)</button>
+      </div>
+
+      <!-- 12 Safety Tip Cards Grid -->
+      <div class="row g-4" id="safetyTipsGrid">
+        <!-- Tip 1: Passwords -->
+        <div class="col-md-6 col-lg-4 tip-item-col">
+          <div class="tip-card" data-category="passwords">
+            <span class="tip-category-badge"><i class="bi bi-key-fill" aria-hidden="true"></i> Passwords</span>
+            <h3 class="tip-title">Adopt Multi-Word Passphrases</h3>
+            <p class="tip-body">
+              Instead of short, predictable words with replaced letters, combine four or more unrelated words (e.g.
+              <code>lotus-monsoon-tea-ocean</code>). Length is the most critical defense against automated brute-force
+              attacks.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tip 2: Passwords -->
+        <div class="col-md-6 col-lg-4 tip-item-col">
+          <div class="tip-card" data-category="passwords">
+            <span class="tip-category-badge"><i class="bi bi-key-fill" aria-hidden="true"></i> Passwords</span>
+            <h3 class="tip-title">Use a Password Manager</h3>
+            <p class="tip-body">
+              Humans cannot safely memorize dozens of unique 16-character passwords. Reputable password managers
+              generate and encrypt random passwords, autofilling them only on verified authentic websites.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tip 3: Passwords -->
+        <div class="col-md-6 col-lg-4 tip-item-col">
+          <div class="tip-card" data-category="passwords">
+            <span class="tip-category-badge"><i class="bi bi-key-fill" aria-hidden="true"></i> Passwords</span>
+            <h3 class="tip-title">Stop Reusing Passwords</h3>
+            <p class="tip-body">
+              When one company suffers a database breach, attackers use automated bots to test those identical
+              email-and-password combinations across email providers, social media, and banking services.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tip 4: Accounts -->
+        <div class="col-md-6 col-lg-4 tip-item-col">
+          <div class="tip-card" data-category="accounts">
+            <span class="tip-category-badge"><i class="bi bi-person-badge-fill" aria-hidden="true"></i> Accounts</span>
+            <h3 class="tip-title">Enable Multi-Factor Authentication</h3>
+            <p class="tip-body">
+              MFA requires two proofs of identity before granting access. Even if an attacker steals your password, they
+              cannot access your account without your authenticator app or hardware key.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tip 5: Accounts -->
+        <div class="col-md-6 col-lg-4 tip-item-col">
+          <div class="tip-card" data-category="accounts">
+            <span class="tip-category-badge"><i class="bi bi-person-badge-fill" aria-hidden="true"></i> Accounts</span>
+            <h3 class="tip-title">Treat OTPs as Strict Secrets</h3>
+            <p class="tip-body">
+              One-Time Passwords (OTPs) authorize high-stakes transactions. Official bank staff, customer service
+              agents, and telecoms will <strong>never</strong> ask you to read out your OTP over the phone.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tip 6: Accounts -->
+        <div class="col-md-6 col-lg-4 tip-item-col">
+          <div class="tip-card" data-category="accounts">
+            <span class="tip-category-badge"><i class="bi bi-person-badge-fill" aria-hidden="true"></i> Accounts</span>
+            <h3 class="tip-title">Audit Connected Apps Regularly</h3>
+            <p class="tip-body">
+              Periodically review third-party apps linked to your Google, Facebook, or Apple IDs. Revoke permissions for
+              older games, quizzes, and utilities you no longer actively use.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tip 7: Browsing -->
+        <div class="col-md-6 col-lg-4 tip-item-col">
+          <div class="tip-card" data-category="browsing">
+            <span class="tip-category-badge"><i class="bi bi-globe2" aria-hidden="true"></i> Browsing</span>
+            <h3 class="tip-title">Inspect URLs & HTTPS Limits</h3>
+            <p class="tip-body">
+              The padlock icon in your browser only proves the connection is encrypted in transit—it does
+              <strong>not</strong> mean the website is legitimate. Scammers obtain free SSL certificates for phishing
+              domains too.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tip 8: Browsing -->
+        <div class="col-md-6 col-lg-4 tip-item-col">
+          <div class="tip-card" data-category="browsing">
+            <span class="tip-category-badge"><i class="bi bi-globe2" aria-hidden="true"></i> Browsing</span>
+            <h3 class="tip-title">Keep Browsers Updated Promptly</h3>
+            <p class="tip-body">
+              Zero-day vulnerabilities in web engines are patched frequently by browser vendors. Enable automatic
+              updates on Chrome, Firefox, Safari, and Edge to defend against drive-by downloads.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tip 9: Browsing -->
+        <div class="col-md-6 col-lg-4 tip-item-col">
+          <div class="tip-card" data-category="browsing">
+            <span class="tip-category-badge"><i class="bi bi-globe2" aria-hidden="true"></i> Browsing</span>
+            <h3 class="tip-title">Avoid Risky Downloads on Public Wi-Fi</h3>
+            <p class="tip-body">
+              Never install software updates or browser extensions while connected to open public Wi-Fi networks.
+              Attackers can hijack network requests and substitute malicious payload executables.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tip 10: Privacy -->
+        <div class="col-md-6 col-lg-4 tip-item-col">
+          <div class="tip-card" data-category="privacy">
+            <span class="tip-category-badge"><i class="bi bi-shield-shaded" aria-hidden="true"></i> Privacy</span>
+            <h3 class="tip-title">Limit Personal Info on Social Media</h3>
+            <p class="tip-body">
+              Avoid posting photos of flight boarding passes, national identity cards, utility bills, or full birthdays.
+              Attackers aggregate this data to bypass security challenge questions and impersonate you.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tip 11: Privacy -->
+        <div class="col-md-6 col-lg-4 tip-item-col">
+          <div class="tip-card" data-category="privacy">
+            <span class="tip-category-badge"><i class="bi bi-shield-shaded" aria-hidden="true"></i> Privacy</span>
+            <h3 class="tip-title">Restrict Mobile App Permissions</h3>
+            <p class="tip-body">
+              Check app permissions on your Android or iOS device. Deny location, microphone, contacts, and camera
+              access to apps that have no operational need for those capabilities.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tip 12: Privacy -->
+        <div class="col-md-6 col-lg-4 tip-item-col">
+          <div class="tip-card" data-category="privacy">
+            <span class="tip-category-badge"><i class="bi bi-shield-shaded" aria-hidden="true"></i> Privacy</span>
+            <h3 class="tip-title">Spot Emotional & Urgency Traps</h3>
+            <p class="tip-body">
+              Scammers manufacture fear ("Arrest warrant issued"), urgency ("Pay in 1 hour"), or excitement ("You won
+              Rs. 500,000"). When you feel an intense emotional push to act, stop and verify.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Interactive Tools Section (#tools)
+       Tool 1: Password Strength Checker
+       Tool 2: Spot the Phish Simulated Exercise
+       ========================================================================== -->
+  <section class="section-padding" id="tools">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge"><i class="bi bi-tools" aria-hidden="true"></i> Interactive Labs</span>
+        <h2 class="section-title">Hands-On Cybersecurity Tools</h2>
+        <p class="section-subtitle">
+          Test your defensive skills in a secure environment. Check password complexity offline and learn to inspect
+          simulated phishing communications.
+        </p>
+      </div>
+
+      <!-- ==================================================================
+           Tool 1: Password Strength Checker (#password-tool)
+           ================================================================== -->
+      <div class="tool-container-card" id="password-tool">
+        <div class="row align-items-center mb-4">
+          <div class="col-md-8">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge bg-primary text-white"><i class="bi bi-key-fill"></i> Tool 1</span>
+              <h3 class="h4 mb-0 fw-bold">Live Password Strength Evaluator</h3>
+            </div>
+            <p class="text-muted mb-0">
+              Length, character diversity, and avoiding reused credentials are fundamental to strong protection. This
+              educational tool evaluates password complexity against key guidelines.
+            </p>
+          </div>
+          <div class="col-md-4 text-md-end mt-3 mt-md-0">
+            <button class="btn btn-outline-secondary btn-sm" id="resetPasswordBtn" type="button">
+              <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Clear & Reset
+            </button>
+          </div>
+        </div>
+
+        <!-- Exact Required Privacy Notice -->
+        <div class="privacy-callout-banner" role="status">
+          <i class="bi bi-shield-check-fill" aria-hidden="true"></i>
+          <div>
+            <strong>Your password never leaves your device.</strong>
+            <div class="small text-muted">Evaluated strictly in your local browser memory. No network transmission, no
+              console logging, and no persistent storage.</div>
+          </div>
+        </div>
+
+        <!-- Password Input & Show/Hide Toggle -->
+        <div class="mb-3">
+          <label for="passwordInput" class="form-label fw-semibold">Enter a sample password to test:</label>
+          <div class="password-input-wrapper">
+            <input type="password" class="form-control password-input-field font-mono" id="passwordInput"
+              placeholder="Type a password or passphrase..." autocomplete="off" spellcheck="false">
+            <button class="password-toggle-btn" id="togglePasswordVisibility" type="button" aria-label="Show password">
+              <i class="bi bi-eye" id="togglePasswordIcon" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Strength Meter Bar & Label -->
+        <div class="strength-meter-wrapper">
+          <div class="strength-meter-bar-container">
+            <div class="strength-meter-bar" id="strengthMeterBar"></div>
+          </div>
+          <div class="strength-label-text">
+            <span id="strengthMeterLabel" class="text-muted">Enter a password to evaluate strength</span>
+            <span id="strengthScoreText" class="text-muted font-mono">0 / 5 Requirements</span>
+          </div>
+        </div>
+
+        <!-- Checklist -->
+        <h4 class="h6 fw-bold mb-3 text-secondary text-uppercase" style="letter-spacing: 0.5px;">Complexity & Hygiene
+          Checklist:</h4>
+        <ul class="pw-checklist">
+          <li class="pw-checklist-item invalid" id="pwCheckLength">
+            <i class="bi bi-circle" aria-hidden="true"></i>
+            <span class="pw-check-text">At least 12 characters in length</span>
+          </li>
+          <li class="pw-checklist-item invalid" id="pwCheckUpper">
+            <i class="bi bi-circle" aria-hidden="true"></i>
+            <span class="pw-check-text">Contains uppercase letter (A-Z)</span>
+          </li>
+          <li class="pw-checklist-item invalid" id="pwCheckLower">
+            <i class="bi bi-circle" aria-hidden="true"></i>
+            <span class="pw-check-text">Contains lowercase letter (a-z)</span>
+          </li>
+          <li class="pw-checklist-item invalid" id="pwCheckNumber">
+            <i class="bi bi-circle" aria-hidden="true"></i>
+            <span class="pw-check-text">Contains at least one number (0-9)</span>
+          </li>
+          <li class="pw-checklist-item invalid" id="pwCheckSymbol">
+            <i class="bi bi-circle" aria-hidden="true"></i>
+            <span class="pw-check-text">Contains special symbol (!@#$%^&amp;*...)</span>
+          </li>
+          <li class="pw-checklist-item invalid" id="pwCheckCommon">
+            <i class="bi bi-circle" aria-hidden="true"></i>
+            <span class="pw-check-text">Not on common password demonstration list</span>
+          </li>
+        </ul>
+
+        <div class="mt-4 p-3 bg-light rounded-3 border">
+          <p class="small text-muted mb-0">
+            <i class="bi bi-info-circle-fill text-primary-blue" aria-hidden="true"></i> <strong>Educational
+              Note:</strong> This demonstration checker tests algorithmic complexity and compares against a small
+            demonstration list of common passwords, not a comprehensive database. It cannot guarantee security against
+            credential leaks or targeted social engineering.
+          </p>
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           Tool 2: Spot the Phish Simulated Exercise (#phish-tool)
+           ================================================================== -->
+      <div class="tool-container-card" id="phish-tool">
+        <div class="row align-items-center mb-4">
+          <div class="col-md-8">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge bg-danger text-white"><i class="bi bi-envelope-exclamation-fill"></i> Tool 2</span>
+              <h3 class="h4 mb-0 fw-bold">Spot the Phish: Simulated Exercise</h3>
+            </div>
+            <p class="text-muted mb-0">
+              Can you spot the 5 warning signs in this fraudulent delivery email? Click on the suspicious elements
+              directly inside the email to reveal why they indicate phishing.
+            </p>
+          </div>
+          <div class="col-md-4 text-md-end mt-3 mt-md-0 d-flex align-items-center justify-content-md-end gap-2">
+            <span class="flag-counter-badge" id="phishFoundCount">Found 0 / 5 Red Flags</span>
+            <button class="btn btn-outline-secondary btn-sm" id="resetPhishBtn" type="button">
+              <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Reset
+            </button>
+          </div>
+        </div>
+
+        <div class="alert alert-info py-2 px-3 small d-flex align-items-center gap-2" role="note">
+          <i class="bi bi-shield-shaded fs-5 text-primary-blue" aria-hidden="true"></i>
+          <span><strong>Simulated Exercise:</strong> All domains and links shown below are fictional illustrations
+            created strictly for educational training.</span>
+        </div>
+
+        <!-- Simulated Email Client Window -->
+        <div class="phish-exercise-wrapper mb-4">
+          <div class="phish-email-client" role="region" aria-label="Simulated Phishing Email">
+            <div class="email-client-header">
+              <div class="d-flex gap-2" aria-hidden="true">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+              </div>
+              <div class="small text-muted fw-semibold font-mono">MailBox — Inbound Message (Simulated)</div>
+              <div class="small text-muted"><i class="bi bi-lock-slash text-danger"></i> Unverified Sender</div>
+            </div>
+
+            <!-- Email Metadata -->
+            <div class="email-metadata-row">
+              <strong>From:</strong>
+              <span class="phish-flag" data-flag="sender" tabindex="0" role="button"
+                aria-label="Sender address: delivery-update-notice@sl-postal-secure-track-delivery.xyz (Click to inspect)">
+                Sri Lanka Express Post &lt;delivery-update-notice@sl-postal-secure-track-delivery.xyz&gt;
+              </span>
+            </div>
+            <div class="email-metadata-row">
+              <strong>To:</strong> <span>recipient@example-inbox.lk</span>
+            </div>
+            <div class="email-metadata-row">
+              <strong>Subject:</strong> <span>FINAL NOTICE: Unpaid Customs Surcharge on Pending Parcel #LK-883921</span>
+            </div>
+            <div class="email-metadata-row">
+              <strong>Date:</strong> <span>Today, 08:42 AM</span>
+            </div>
+
+            <!-- Email Body -->
+            <div class="email-body-content">
+              <p>
+                <span class="phish-flag" data-flag="greeting" tabindex="0" role="button"
+                  aria-label="Greeting: Dear Valued Customer (Click to inspect)">
+                  Dear Valued Customer,
+                </span>
+              </p>
+
+              <p>
+                <span class="phish-flag" data-flag="urgency" tabindex="0" role="button"
+                  aria-label="Urgent threat: Package held at central distribution hub, will be seized within 24 hours (Click to inspect)">
+                  URGENT NOTICE: Your incoming parcel from overseas is currently held at our central distribution hub.
+                  Failure to pay the clearance fee of Rs. 385 within 24 hours will result in your package being seized,
+                  destroyed, or returned to sender immediately!
+                </span>
+              </p>
+
+              <p>
+                To resolve this clearance fee and avoid forfeiture, you must complete your verification directly using
+                our online link:
+              </p>
+
+              <div class="p-3 my-3 bg-light border rounded text-center">
+                <span class="phish-flag font-mono small text-break" data-flag="link" tabindex="0" role="button"
+                  aria-label="Suspicious link: http://track-parcel-srilanka-paynow.cc/auth/verify?id=99283 (Click to inspect)">
+                  http://track-parcel-srilanka-paynow.cc/auth/verify?id=99283
+                </span>
+              </div>
+
+              <p>
+                <span class="phish-flag" data-flag="sensitive" tabindex="0" role="button"
+                  aria-label="Request for sensitive data: National Identity Card, credit card CVV, and SMS OTP (Click to inspect)">
+                  To expedite emergency clearance, you are required to submit your National Identity Card (NIC) number,
+                  full debit/credit card number, CVV code, and the SMS One-Time Password (OTP) received on your phone.
+                </span>
+              </p>
+
+              <p class="mb-0 text-muted small">
+                Sri Lanka Express Post Services &bull; Automated Dispatch System &bull; Do Not Reply
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Completion Celebration Banner -->
+        <div class="phish-completion-banner" id="phishCompletionBanner" role="alert">
+          <i class="bi bi-award-fill fs-2" aria-hidden="true"></i>
+          <div>
+            <h4 class="h5 fw-bold mb-1">Congratulations! You Identified All 5 Phishing Flags!</h4>
+            <p class="mb-0 small">
+              You correctly spotted the unofficial domain, impersonal greeting, manufactured urgency, unencrypted link,
+              and high-risk OTP request. Apply these same vigilant habits to your personal inbox!
+            </p>
+          </div>
+        </div>
+
+        <!-- Discovered Flags Breakdown Cards -->
+        <h4 class="h6 fw-bold mb-3 text-secondary text-uppercase mt-4" style="letter-spacing: 0.5px;">Discovered Red
+          Flags Breakdown:</h4>
+        <div class="row g-3">
+          <!-- Flag 1 Breakdown -->
+          <div class="col-md-6 col-lg-4">
+            <div class="phish-explanation-card" id="explanation-sender">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-secondary explanation-status-badge"><i class="bi bi-search"></i>
+                  Undiscovered</span>
+                <span class="small text-muted font-mono">Flag #1</span>
+              </div>
+              <h5 class="h6 fw-bold mb-1">Suspicious Sender Address</h5>
+              <div class="explanation-content" style="display: none;">
+                <p class="small text-muted mb-0">
+                  The domain <code>sl-postal-secure-track-delivery.xyz</code> uses an obscure generic TLD (.xyz) with
+                  hyphenated words. Legitimate government and postal entities in Sri Lanka operate under verified
+                  <code>.gov.lk</code> or accredited commercial domains.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flag 2 Breakdown -->
+          <div class="col-md-6 col-lg-4">
+            <div class="phish-explanation-card" id="explanation-greeting">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-secondary explanation-status-badge"><i class="bi bi-search"></i>
+                  Undiscovered</span>
+                <span class="small text-muted font-mono">Flag #2</span>
+              </div>
+              <h5 class="h6 fw-bold mb-1">Generic Impersonal Greeting</h5>
+              <div class="explanation-content" style="display: none;">
+                <p class="small text-muted mb-0">
+                  Phishing emails use generic placeholders like "Dear Valued Customer" because they are mass-blasted to
+                  millions of harvested email addresses. Couriers that have your parcel already know your name.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flag 3 Breakdown -->
+          <div class="col-md-6 col-lg-4">
+            <div class="phish-explanation-card" id="explanation-urgency">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-secondary explanation-status-badge"><i class="bi bi-search"></i>
+                  Undiscovered</span>
+                <span class="small text-muted font-mono">Flag #3</span>
+              </div>
+              <h5 class="h6 fw-bold mb-1">Manufactured Urgency</h5>
+              <div class="explanation-content" style="display: none;">
+                <p class="small text-muted mb-0">
+                  Threatening that your package will be "destroyed within 24 hours" is an emotional pressure tactic.
+                  Attackers manufacture artificial urgency to bypass your rational thinking and prevent verification.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flag 4 Breakdown -->
+          <div class="col-md-6 col-lg-6">
+            <div class="phish-explanation-card" id="explanation-link">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-secondary explanation-status-badge"><i class="bi bi-search"></i>
+                  Undiscovered</span>
+                <span class="small text-muted font-mono">Flag #4</span>
+              </div>
+              <h5 class="h6 fw-bold mb-1">Insecure Link &amp; Fake Domain</h5>
+              <div class="explanation-content" style="display: none;">
+                <p class="small text-muted mb-0">
+                  The link uses unencrypted <code>http://</code> and directs to a foreign <code>.cc</code> domain.
+                  Legitimate delivery tracking portals encrypt sessions with modern HTTPS and host under official
+                  company domains.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flag 5 Breakdown -->
+          <div class="col-md-12 col-lg-6">
+            <div class="phish-explanation-card" id="explanation-sensitive">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-secondary explanation-status-badge"><i class="bi bi-search"></i>
+                  Undiscovered</span>
+                <span class="small text-muted font-mono">Flag #5</span>
+              </div>
+              <h5 class="h6 fw-bold mb-1">Unusual Request for CVV, NIC &amp; OTP</h5>
+              <div class="explanation-content" style="display: none;">
+                <p class="small text-muted mb-0">
+                  A postal courier will never ask for your card CVV code, National Identity Card, or SMS One-Time
+                  Passwords via email. Surrendering your OTP gives criminals authorization to execute unauthorized
+                  transactions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Cyber Safety Quiz Section (#quiz)
+       10 Scenario-based Questions with Feedback, Scoring & Best Score Storage
+       ========================================================================== -->
+  <section class="section-padding bg-light-custom" id="quiz">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> Knowledge
+          Evaluation</span>
+        <h2 class="section-title">Cyber Safety Quiz</h2>
+        <p class="section-subtitle">
+          Test your cybersecurity instincts with 10 practical questions. Get immediate feedback on each question and
+          track your personal best score.
+        </p>
+      </div>
+
+      <div class="quiz-card" role="region" aria-label="Cyber Safety Quiz Application">
+        <!-- Question Screen Container -->
+        <div id="quizQuestionContainer">
+          <div class="quiz-progress-wrapper">
+            <div class="quiz-header-meta">
+              <span class="quiz-question-counter" id="quizQuestionCounter">Question 1 of 10</span>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle font-mono"
+                id="quizTopicBadge">Phishing</span>
+              <span class="quiz-best-score-pill" id="quizBestScoreVal">Best: —</span>
+            </div>
+            <div class="quiz-progress-bar-bg" role="progressbar" aria-valuenow="10" aria-valuemin="0"
+              aria-valuemax="100">
+              <div class="quiz-progress-bar-fill" id="quizProgressBarFill"></div>
+            </div>
+          </div>
+
+          <h3 class="quiz-question-title" id="quizQuestionTitle">Loading question...</h3>
+
+          <div class="quiz-options-list" id="quizOptionsList" role="group" aria-label="Answer options">
+            <!-- Dynamically populated via quiz.js -->
+          </div>
+
+          <!-- Immediate Feedback Alert Box -->
+          <div class="quiz-feedback-box" id="quizFeedbackBox" role="alert"></div>
+
+          <!-- Next Button -->
+          <div class="text-end">
+            <button class="btn btn-primary-custom" id="quizNextBtn" type="button" style="display: none;">
+              Next Question <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Final Result Screen (Initially hidden) -->
+        <div class="quiz-result-screen" id="quizResultScreen" role="region" aria-label="Quiz Results Summary">
+          <div class="result-trophy-icon" aria-hidden="true">
+            <i class="bi bi-award-fill"></i>
+          </div>
+          <h3 class="result-score-title">Quiz Completed!</h3>
+          <p class="fs-4 fw-bold text-primary mb-2">You Scored <span id="quizResultScore">0 / 10</span></p>
+          <div>
+            <span class="result-tier-badge bg-success text-white" id="quizResultTierBadge">Cyber Champion</span>
+          </div>
+          <p class="result-message-desc" id="quizResultDescription"></p>
+          <div class="mb-4">
+            <span class="badge bg-light text-secondary border px-3 py-2 font-mono" id="quizResultBestScore">All-Time
+              Personal Best: 0 / 10</span>
+          </div>
+          <button class="btn btn-primary-custom" id="quizRetryBtn" type="button">
+            <i class="bi bi-arrow-repeat" aria-hidden="true"></i> Retake Quiz
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Report & Help Section (#help)
+       Direct link to verified Sri Lanka CERT|CC Incident Reporting Portal
+       ========================================================================== -->
+  <section class="section-padding" id="help">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge"><i class="bi bi-life-preserver" aria-hidden="true"></i> Incident Support</span>
+        <h2 class="section-title">Report an Incident &amp; Get Help</h2>
+        <p class="section-subtitle">
+          If you suspect your accounts, smartphone, or money have been compromised, act swiftly. Follow these immediate
+          emergency steps and report the incident to verified national authorities.
+        </p>
+      </div>
+
+      <div class="row g-4 align-items-stretch mb-5">
+        <!-- Official CERT Reporting Card -->
+        <div class="col-lg-6">
+          <div class="cert-card h-100 d-flex flex-direction-column justify-content-between">
+            <div>
+              <div class="cert-badge">
+                <i class="bi bi-patch-check-fill" aria-hidden="true"></i> Verified Official Authority
+              </div>
+              <h3 class="h3 fw-bold mb-3">Sri Lanka CERT|CC</h3>
+              <p class="text-light opacity-75">
+                The Computer Emergency Readiness Team | Coordination Center (Sri Lanka CERT) is the national focal point
+                for cybersecurity incidents, offering coordinated response, threat mitigation, and technical advisories
+                across Sri Lanka.
+              </p>
+              <div class="cert-url-box">
+                <i class="bi bi-link-45deg me-1"></i> https://cert.gov.lk/report_incident
+              </div>
+              <p class="small text-light opacity-75">
+                Report phishing sites, hacked social accounts, malware infections, ransomware extortion, and online
+                harassment directly through their official reporting portal.
+              </p>
+            </div>
+            <div class="mt-4">
+              <a href="https://cert.gov.lk/report_incident" class="btn btn-primary-custom w-100 justify-content-center"
+                target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Open Sri Lanka CERT Incident Portal
+              </a>
+              <div class="text-center mt-2">
+                <span class="small text-light opacity-50">Opens official cert.gov.lk portal in a new tab</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Police Cyber Crime Division & Other Support -->
+        <div class="col-lg-6">
+          <div class="h-100 d-flex flex-column gap-3">
+            <div class="incident-step-card flex-grow-1">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="step-num-badge"><i class="bi bi-shield-shaded"></i></div>
+                <h4 class="h5 fw-bold mb-0">Sri Lanka Police Cyber Crime Division (CID)</h4>
+              </div>
+              <p class="text-muted small mb-0">
+                If you have suffered financial loss, bank account theft, or digital blackmail, file a formal complaint
+                with the Criminal Investigation Department (CID) Cyber Crime Division. Bring all transaction receipts
+                and printed message transcripts.
+              </p>
+            </div>
+
+            <div class="incident-step-card flex-grow-1">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="step-num-badge"><i class="bi bi-bank2"></i></div>
+                <h4 class="h5 fw-bold mb-0">Bank Financial Fraud Hotline</h4>
+              </div>
+              <p class="text-muted small mb-0">
+                If you accidentally submitted debit/credit card details or an SMS OTP on a phishing website, call your
+                bank's 24/7 emergency customer care hotline immediately to freeze cards and stop pending transfers.
+              </p>
+            </div>
+
+            <div class="incident-step-card flex-grow-1">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="step-num-badge"><i class="bi bi-chat-square-dots-fill"></i></div>
+                <h4 class="h5 fw-bold mb-0">Platform Abuse Reporting</h4>
+              </div>
+              <p class="text-muted small mb-0">
+                Report suspicious WhatsApp or Telegram accounts using the built-in "Report Spam" button. Flag fake
+                websites via <a href="https://safebrowsing.google.com/safebrowsing/report_phish/" target="_blank"
+                  rel="noopener noreferrer">Google Safe Browsing</a> to protect other internet users globally.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emergency Checklist: 4 Immediate Action Steps -->
+      <h3 class="h4 fw-bold text-center mb-4">Immediate Emergency Response Plan</h3>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-3">
+          <div class="incident-step-card">
+            <div class="step-num-badge">1</div>
+            <h4 class="h6 fw-bold">Disconnect Device</h4>
+            <p class="small text-muted mb-0">Immediately disable Wi-Fi and mobile data to prevent malware from
+              transmitting your files or receiving command instructions.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="incident-step-card">
+            <div class="step-num-badge">2</div>
+            <h4 class="h6 fw-bold">Freeze Bank Cards</h4>
+            <p class="small text-muted mb-0">If card or bank details were entered, call your bank immediately to block
+              affected cards and reverse pending transactions.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="incident-step-card">
+            <div class="step-num-badge">3</div>
+            <h4 class="h6 fw-bold">Change Passwords</h4>
+            <p class="small text-muted mb-0">From a separate, uncompromised device, update master passwords for primary
+              email, social media, and banking accounts.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="incident-step-card">
+            <div class="step-num-badge">4</div>
+            <h4 class="h6 fw-bold">Preserve Evidence</h4>
+            <p class="small text-muted mb-0">Take high-resolution screenshots of fraudulent text messages, payment
+              slips, sender phone numbers, and URLs for official reporting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       About Section & Footer
+       ========================================================================== -->
+  <section class="section-padding about-section" id="about">
+    <div class="container">
+      <div class="row align-items-center align-items-lg-start">
+        <div class="col-lg-7 mb-4 mb-lg-0">
+          <span class="section-badge"><i class="bi bi-info-circle-fill" aria-hidden="true"></i> Project Mission</span>
+          <h2 class="h2 fw-bold mb-3">About CyberShield</h2>
+          <p class="text-muted">
+            CyberShield was developed as an educational frontend web application to make cybersecurity awareness
+            accessible, interactive, and relevant for everyday internet users in Sri Lanka.
+          </p>
+          <p class="text-muted">
+            Rather than relying on abstract technical jargon, CyberShield translates real-world threat patterns—such as
+            WhatsApp investment scams, fake postal courier SMS alerts, and unencrypted public Wi-Fi—into practical,
+            understandable guidance. Through interactive simulations, offline password evaluation, and scenario-based
+            quizzes, users build proactive security reflexes.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <div class="p-3 bg-light rounded-3 border flex-grow-1">
+              <div class="fw-bold text-navy-hero"><i class="bi bi-code-slash text-primary-blue"></i> Designed &amp;
+                Developed By</div>
+              <div class="fs-5 fw-bold text-dark">Jumaila Junaid</div>
+              <div class="small text-muted">Junior Full Stack Developer &bull; Cybersecurity Enthusiast</div>
+            </div>
+            <div class="p-3 bg-light rounded-3 border flex-grow-1">
+              <div class="fw-bold text-navy-hero"><i class="bi bi-cpu text-cyan"></i> Development Note</div>
+              <div class="text-dark fw-semibold">Built with AI assistance</div>
+              <div class="small text-muted">Curated, implemented, verified &amp; reviewed</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 align-self-lg-start">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-light">
+            <h3 class="h5 fw-bold mb-3"><i class="bi bi-link-45deg text-primary-blue"></i> Connect &amp; Explore</h3>
+            <p class="small text-muted mb-3">
+              Connect with Jumaila Junaid on professional networks or explore additional projects in the portfolio:
+            </p>
+            <div class="d-grid gap-2">
+              <a href="https://www.linkedin.com/in/jumaila-junaid/"
+                class="btn btn-outline-info about-connect-btn d-flex align-items-center justify-content-between"
+                target="_blank" rel="noopener noreferrer">
+                <span><i class="bi bi-linkedin me-2"></i> LinkedIn Profile</span>
+                <i class="bi bi-box-arrow-up-right small"></i>
+              </a>
+              <a href="https://github.com/jumaila-junaid"
+                class="btn btn-outline-info about-connect-btn d-flex align-items-center justify-content-between"
+                target="_blank" rel="noopener noreferrer">
+                <span><i class="bi bi-github me-2"></i> GitHub Profile</span>
+                <i class="bi bi-box-arrow-up-right small"></i>
+              </a>
+              <a href="https://jumaila-junaid.github.io/Jumaila-Portfolio/"
+                class="btn btn-outline-info about-connect-btn d-flex align-items-center justify-content-between"
+                target="_blank" rel="noopener noreferrer">
+                <span><i class="bi bi-briefcase-fill me-2"></i> Developer Portfolio</span>
+                <i class="bi bi-box-arrow-up-right small"></i>
+              </a>
+            </div>
+
+            <p class="small text-muted mb-3 small mt-4 mb-0">
+              CyberShield is an educational project. If you think you have been targeted by a cyber attack, see the
+              Report &amp; Help section.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Footer
+       ========================================================================== -->
+  <footer class="footer-custom" role="contentinfo">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Brand & Description -->
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <i class="bi bi-shield-lock-fill text-cyan fs-3" aria-hidden="true"></i>
+            <span class="fs-4 fw-bold text-white">Cyber<span class="text-primary-blue">Shield</span></span>
+          </div>
+          <p class="small text-light opacity-75 mb-3">
+            An educational cybersecurity awareness initiative created to foster safer online behavior, empower user
+            privacy, and highlight verified response procedures.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="https://www.linkedin.com/in/jumaila-junaid/" class="social-link-btn" target="_blank"
+              rel="noopener noreferrer" aria-label="LinkedIn profile">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://github.com/jumaila-junaid" class="social-link-btn" target="_blank"
+              rel="noopener noreferrer" aria-label="GitHub profile">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://jumaila-junaid.github.io/Jumaila-Portfolio/" class="social-link-btn" target="_blank"
+              rel="noopener noreferrer" aria-label="Developer portfolio">
+              <i class="bi bi-globe"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Navigation Links -->
+        <div class="col-6 col-lg-2">
+          <h4 class="h6 fw-bold mb-3 text-white text-uppercase" style="letter-spacing: 0.5px;">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#threats">Threats</a></li>
+            <li><a href="#tips">Safety Tips</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#help">Report &amp; Help</a></li>
+          </ul>
+        </div>
+
+        <!-- Interactive Features -->
+        <div class="col-6 col-lg-3">
+          <h4 class="h6 fw-bold mb-3 text-white text-uppercase" style="letter-spacing: 0.5px;">Interactive Labs</h4>
+          <ul class="footer-links-list">
+            <li><a href="#password-tool">Password Evaluator</a></li>
+            <li><a href="#phish-tool">Spot the Phish Exercise</a></li>
+            <li><a href="#quiz">10-Question Safety Quiz</a></li>
+            <li><a href="#threats">Threat Scenario Cards</a></li>
+            <li><a href="#tips">Filtered Safety Tips</a></li>
+          </ul>
+        </div>
+
+        <!-- Official Support & Disclaimer -->
+        <div class="col-lg-3">
+          <h4 class="h6 fw-bold mb-3 text-white text-uppercase" style="letter-spacing: 0.5px;">Incident Authority</h4>
+          <p class="small text-light opacity-75 mb-2">
+            Report security threats to the official national coordinator:
+          </p>
+          <a href="https://cert.gov.lk/report_incident" target="_blank" rel="noopener noreferrer"
+            class="btn btn-outline-cyan btn-sm w-100 mb-3">
+            <i class="bi bi-shield-check"></i> Sri Lanka CERT|CC
+          </a>
+          <p class="small text-light opacity-50 mb-0">
+            Educational-use project. Does not constitute formal legal or cryptographic certification.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <div>
+          &copy; 2026 CyberShield. Designed and developed by <strong>Jumaila Junaid</strong>. Built with AI assistance.
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <a href="#home" class="text-light opacity-75 text-decoration-none small"><i class="bi bi-arrow-up-circle"></i>
+            Back to Top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back-to-Top Button (Animated via jQuery fadeIn / fadeOut) -->
+  <button class="back-to-top-btn" id="backToTopBtn" type="button" aria-label="Back to top of page">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ==========================================================================
+       JavaScript Dependencies & Project Scripts
+       Strict Loading Order: jQuery -> Bootstrap Bundle -> Project JS Files
+       ========================================================================== -->
+  <!-- 1. jQuery 3.7.1 via CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <!-- 2. Bootstrap 5.3.3 Bundle via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <!-- 3. CyberShield Custom JavaScript Files -->
+  <script src="js/main.js"></script>
+  <script src="js/threats.js"></script>
+  <script src="js/password.js"></script>
+  <script src="js/phish.js"></script>
+  <script src="js/quiz.js"></script>
+
+</body>
+
+</html>
