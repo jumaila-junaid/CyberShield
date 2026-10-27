@@ -168,7 +168,7 @@ $(function () {
     } else if (requirementsMet === 5 && val.length < 16) {
       $strengthBar.css({ width: '85%', backgroundColor: '#2F80FF' });
       $strengthLabel.html('<span class="text-primary-blue fw-bold"><i class="bi bi-shield-lock-fill"></i> Strong — Meets all 6 core guidelines</span>');
-    } else if (requirementsMet === 5 && val.length >= 16) {
+    } else if (requirementsMet === 6 && val.length >= 16) {
       $strengthBar.css({ width: '100%', backgroundColor: '#22C55E' });
       $strengthLabel.html('<span class="text-success fw-bold"><i class="bi bi-shield-fill-check"></i> Very Strong — Excellent passphrase length & complexity!</span>');
     }
