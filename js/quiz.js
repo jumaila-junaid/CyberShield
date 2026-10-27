@@ -228,18 +228,31 @@ $(function () {
     var progressPercent = Math.round(((questionNum - 1) / totalQuestions) * 100);
     $progressBarFill.css('width', progressPercent + '%');
 
-    // Build option buttons
+        // Build option buttons in a random order.
+    // data-index keeps the ORIGINAL option number, so the answer check below still works.
     $optionsList.empty();
     var optionLetters = ['A', 'B', 'C', 'D'];
 
-    $.each(q.options, function (idx, optionText) {
+    var order = [];
+    for (var i = 0; i < q.options.length; i++) {
+      order.push(i);
+    }
+    // Fisher-Yates shuffle
+    for (var j = order.length - 1; j > 0; j--) {
+      var k = Math.floor(Math.random() * (j + 1));
+      var temp = order[j];
+      order[j] = order[k];
+      order[k] = temp;
+    }
+
+    $.each(order, function (pos, originalIdx) {
       var $optBtn = $('<button>')
         .addClass('quiz-option-btn')
         .attr('type', 'button')
-        .attr('data-index', idx)
+        .attr('data-index', originalIdx)
         .html(
-          '<span class="quiz-option-badge">' + optionLetters[idx] + '</span>' +
-          '<span class="quiz-option-text flex-grow-1">' + optionText + '</span>'
+          '<span class="quiz-option-badge">' + optionLetters[pos] + '</span>' +
+          '<span class="quiz-option-text flex-grow-1">' + q.options[originalIdx] + '</span>'
         );
 
       $optionsList.append($optBtn);
