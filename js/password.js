@@ -136,7 +136,7 @@ $(function () {
     updateChecklistItem($checkSymbol, hasSymbol, false);
     updateChecklistItem($checkCommon, !isCommon, isCommon);
 
-    // Calculate requirements count (out of 5 basic requirements)
+        // Count the 5 basic requirements (used for the strength levels below)
     var requirementsMet = 0;
     if (hasLength) requirementsMet++;
     if (hasUpper) requirementsMet++;
@@ -144,7 +144,9 @@ $(function () {
     if (hasNumber) requirementsMet++;
     if (hasSymbol) requirementsMet++;
 
-    $strengthScoreText.text(requirementsMet + ' / 5 Requirements Met');
+    // The 6th checklist item (not a common password) also counts for the display
+    var totalMet = requirementsMet + (isCommon ? 0 : 1);
+    $strengthScoreText.text(totalMet + ' / 6 Requirements Met');
 
     // Determine strength tier
     if (isCommon) {
@@ -165,7 +167,7 @@ $(function () {
       $strengthLabel.html('<span style="color: #FBBF24;" class="fw-bold"><i class="bi bi-shield-check"></i> Moderate — Getting better, aim for 12+ chars</span>');
     } else if (requirementsMet === 5 && val.length < 16) {
       $strengthBar.css({ width: '85%', backgroundColor: '#2F80FF' });
-      $strengthLabel.html('<span class="text-primary-blue fw-bold"><i class="bi bi-shield-lock-fill"></i> Strong — Meets all 5 core guidelines</span>');
+      $strengthLabel.html('<span class="text-primary-blue fw-bold"><i class="bi bi-shield-lock-fill"></i> Strong — Meets all 6 core guidelines</span>');
     } else if (requirementsMet === 5 && val.length >= 16) {
       $strengthBar.css({ width: '100%', backgroundColor: '#22C55E' });
       $strengthLabel.html('<span class="text-success fw-bold"><i class="bi bi-shield-fill-check"></i> Very Strong — Excellent passphrase length & complexity!</span>');
