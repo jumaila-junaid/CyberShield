@@ -6,8 +6,8 @@ CyberShield is a responsive, client-side educational frontend website designed t
 
 ## Live Demo & Source Code
 
-- **Live Website:** (https://jumaila-junaid.github.io/CyberShield/)
-- **Source Code:** [https://github.com/jumaila-junaid/CyberShield](https://github.com/jumaila-junaid/CyberShield)
+- **Live Website:** [https://jumaila-junaid.github.io/CyberShield]
+- **Source Code:** [https://github.com/jumaila-junaid/CyberShield]
 
 ---
 
