@@ -32,7 +32,7 @@ $(function () {
     // Highlight Home when near the very top of the page
     if (scrollPos < 120) {
       $navLinks.removeClass('active');
-      $('a[href="#home"]').addClass('active');
+      $navLinks.filter('[href="#home"]').addClass('active');
     }
   }
 
@@ -71,7 +71,7 @@ $(function () {
 
       // Update active navigation state
       $navLinks.removeClass('active');
-      $('a[href="' + targetHash + '"]').addClass('active');
+      $navLinks.filter('[href="' + targetHash + '"]').addClass('active');
 
       // Auto-close responsive mobile navbar when link is clicked
       if ($('.navbar-collapse').hasClass('show')) {
@@ -99,7 +99,7 @@ $(function () {
 
     // Reset active nav state to Home
     $navLinks.removeClass('active');
-    $('a[href="#home"]').addClass('active');
+    $navLinks.filter('[href="#home"]').addClass('active');
   });
 
   // ==========================================================================
