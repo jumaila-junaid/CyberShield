@@ -107,7 +107,7 @@ $(function () {
       // Empty input state
       $strengthBar.css({ width: '0%', backgroundColor: 'rgba(255, 255, 255, 0.1)' });
       $strengthLabel.text('Enter a password to evaluate strength');
-      $strengthScoreText.text('0 / 5 Requirements');
+      $strengthScoreText.text('0 / 6 Requirements');
 
       updateChecklistItem($checkLength, false, false);
       updateChecklistItem($checkUpper, false, false);
