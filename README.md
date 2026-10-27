@@ -112,7 +112,7 @@ CyberShield/
 ├── index.html          # Main HTML5 entrypoint with all semantic sections and modal markup
 ├── style.css           # Custom stylesheet: dark theme system, hero grid, terminal, cards, responsive rules
 ├── js/
-│   ├── main.js         # Navbar scroll behavior, smooth scrolling, scrollspy, back-to-top, terminal typing
+│   ├── main.js         # Smooth scrolling, back-to-top button, terminal typing effect
 │   ├── threats.js      # Threat card accordion (slideToggle, single-open) & safety-tip category filtering
 │   ├── password.js     # Client-side password evaluator, strength meter, checklist, privacy safeguards
 │   ├── phish.js        # Spot the Phish interactive exercise, red flag detection, explanations, reset
@@ -176,16 +176,11 @@ To publish CyberShield live on GitHub Pages:
 
 ---
 
-## Verification & Testing Record
+## Testing Notes
 
-### Performed Checks
-- **Codebase Integrity:** Checked that all 8 required files exist in their exact locations without empty files, TODO placeholders, or broken relative references.
-- **Sri Lanka CERT Link Verification:** Verified live via HTTP request that `https://cert.gov.lk/report_incident` is the active, functioning incident reporting portal of the Sri Lanka Computer Emergency Readiness Team.
-- **Responsive Layout Verification:** Verified layout structures and media query styles for:
-  - Mobile (360px viewport)
-  - Tablet (768px viewport)
-  - Desktop (1366px viewport)
-- **Privacy & Security Verification:** Confirmed that passwords in `js/password.js` are never stored in localStorage/sessionStorage, never logged via `console.log`, and never transmitted over the network. Verified that quiz scores store strictly the numeric integer in localStorage within a defensive `try/catch` block.
+- Manually tested in Google Chrome on a laptop and in mobile device view: navigation, Back-to-Top button, threat cards, safety tips filter, password checker, Spot the Phish exercise and the quiz.
+- The password checker does not store, log or send the password anywhere. The quiz stores only the best numeric score in localStorage.
+- The Sri Lanka CERT|CC reporting link (https://cert.gov.lk/report_incident) was checked and is active.
 
 ---
 
